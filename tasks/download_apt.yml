@@ -9,6 +9,6 @@
   delegate_to: localhost
 - name: Copy filebeat to remote host
   copy:
-    scr: "files/filebeat-{{ filebeat_version }}-amd64.deb"
+    src: "files/filebeat-{{ filebeat_version }}-amd64.deb"
     mode: 0755
     dest: "/tmp/filebeat-{{ filebeat_version }}-amd64.deb"
