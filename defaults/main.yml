@@ -1,2 +1,2 @@
 ---
-# defaults file for filebeat-role
+filebeat_version: "7.14.0"

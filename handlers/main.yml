@@ -1,2 +1,7 @@
 ---
-# handlers file for filebeat-role
+- name: restart filebeat
+  become: true
+  systemd:
+    name: filebeat
+    state: restarted
+    enabled: true
