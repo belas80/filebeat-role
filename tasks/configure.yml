@@ -4,7 +4,7 @@
   template:
     src: filebeat.yml.j2
     dest: /etc/filebeat/filebeat.yml
-    mode: '640'
+    mode: '644'
   notify: restart filebeat
 - name: Enable and configure the system module
   become: true

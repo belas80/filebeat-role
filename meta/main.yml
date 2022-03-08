@@ -2,6 +2,7 @@ galaxy_info:
   author: Alexander Belyaev
   description: Install Filebeat
   company: netology
+  namespace: belas80
   role_name: filebeat
 
   # If the issue tracker for your role is not on github, uncomment the

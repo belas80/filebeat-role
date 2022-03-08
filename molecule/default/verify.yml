@@ -5,6 +5,23 @@
   hosts: all
   gather_facts: false
   tasks:
-  - name: Example assertion
-    assert:
-      that: true
+    - name: retrieve information about log dir
+      become: true
+      stat:
+        path: /var/log/filebeat
+      register: filebeat_log
+    - name: check file exist
+      assert:
+        that:
+          - "filebeat_log.stat.exists"
+          - "filebeat_log.stat.isdir"
+    - name: retrieve information about conf file
+      become: true
+      stat:
+        path: /etc/filebeat/filebeat.yml
+      register: filebeat_conf
+    - name: check file exist
+      assert:
+        that:
+          - "filebeat_conf.stat.exists"
+          - "filebeat_conf.stat.isreg"
