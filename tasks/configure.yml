@@ -13,6 +13,9 @@
     chdir: /usr/share/filebeat/bin
   register: filebeat_modules
   changed_when: filebeat_modules.stdout != 'Module system is already enabled'
+  when:
+    - ansible_virtualization_type != 'docker'
+    - ansible_virtualization_type != 'podman'
 - name:  Loads the Kibana dashboards
   become: true
   command:
@@ -21,3 +24,6 @@
   register: filebeat_setup
   changed_when: false
   until: filebeat_setup is succeeded
+  when:
+    - ansible_virtualization_type != 'docker'
+    - ansible_virtualization_type != 'podman'
